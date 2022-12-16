@@ -1,0 +1,15 @@
+E:\Projects\statechart-interpreter\statechart-interpreter\bin\Debug\net7.0\statechart-interpreter.exe
+E:\Projects\statechart-interpreter\statechart-interpreter\bin\Debug\net7.0\statechart-interpreter.deps.json
+E:\Projects\statechart-interpreter\statechart-interpreter\bin\Debug\net7.0\statechart-interpreter.runtimeconfig.json
+E:\Projects\statechart-interpreter\statechart-interpreter\bin\Debug\net7.0\statechart-interpreter.dll
+E:\Projects\statechart-interpreter\statechart-interpreter\bin\Debug\net7.0\statechart-interpreter.pdb
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.csproj.AssemblyReference.cache
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.AssemblyInfoInputs.cache
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.AssemblyInfo.cs
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.csproj.CoreCompileInputs.cache
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.dll
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\refint\statechart-interpreter.dll
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.pdb
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\statechart-interpreter.genruntimeconfig.cache
+E:\Projects\statechart-interpreter\statechart-interpreter\obj\Debug\net7.0\ref\statechart-interpreter.dll
