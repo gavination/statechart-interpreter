@@ -19,20 +19,36 @@ namespace statechart_interpreter
 
         }
 
-        public void Toggle(string eventName)
+        public State Transition (State state, StateEvent sEvent)
         {
+            if (sEvent == null || state == null)
+            {
+                throw new ArgumentNullException("Please provide a State Event and a State");
+            }
 
+            // check to see if this is a legal move
+            if (state.stateEvents.Contains(sEvent))
+            {
+                return state.target;
+            }
+            else
+            {
+                throw new Exception("Invalid State provided");
+            }
         }
+
     }
 
     public class State
     {
         public string name { get; set; }
         public StateEvent[] stateEvents { get; set; }
-        public State(StateEvent[] possibleEvents, string stateName )
+        public State? target { get; set; }
+        public State(StateEvent[] possibleEvents, string stateName, State targetState = null )
         {
             this.name = stateName;
             this.stateEvents = possibleEvents;
+            this.target = targetState;
 
         }
     }
