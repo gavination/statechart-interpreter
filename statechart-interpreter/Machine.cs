@@ -7,29 +7,42 @@ using System.Threading.Tasks;
 
 namespace statechart_interpreter
 {
-    public class Machine
+    public class StateMachine
     {
-        public string name { get; set; }
-        public State InitialState { get; set; }
-        public State[] States { get; set; }
-        public Machine(string machineName, State InitialState, State[] possibleStates) { 
-            this.name = machineName;
-            this.InitialState = InitialState;
-            this.States = possibleStates;
-
+        public string Name { get; set; }
+        public StateNode InitialState { get; set; }
+        public StateNode CurrentState { get; private set; }
+        public List<StateNode> StateNodes { get; set; }
+        public StateMachine(string machineName, StateNode initialState, List<StateNode> possibleStates) { 
+            Name = machineName;
+            InitialState = initialState;
+            CurrentState = initialState;
+            StateNodes = possibleStates;
         }
-
-        public State Transition (State state, StateEvent sEvent)
+        public StateNode Transition (StateNode stateNode, TransitionEvent sEvent)
         {
-            if (sEvent == null || state == null)
+            if (sEvent == null || stateNode == null)
             {
                 throw new ArgumentNullException("Please provide a State Event and a State");
             }
 
             // check to see if this is a legal move
-            if (state.stateEvents.Contains(sEvent))
+
+            if (stateNode.stateEvents.Contains(sEvent))
             {
-                return state.target;
+                if (stateNode.target != null)
+                {
+                    CurrentState = stateNode.target;
+                    return stateNode.target;
+
+                }
+                else
+                {
+                    // no transition to make
+                    // note: probs an unnecessary assignment
+                    CurrentState = stateNode;
+                    return stateNode;
+                }
             }
             else
             {
@@ -39,30 +52,37 @@ namespace statechart_interpreter
 
     }
 
-    public class State
-    {
-        public string name { get; set; }
-        public StateEvent[] stateEvents { get; set; }
-        public State? target { get; set; }
-        public State(StateEvent[] possibleEvents, string stateName, State targetState = null )
-        {
-            this.name = stateName;
-            this.stateEvents = possibleEvents;
-            this.target = targetState;
+    public class StateNode
 
+    {
+        public string Name { get; set; }
+        // only legal moves belong in the stateEvents array
+        public List<TransitionEvent> stateEvents { get; set; }
+        public StateNode? target { get; set; }
+        public StateNode(string stateName, List<TransitionEvent> possibleEvents, StateNode targetStateNode = null )
+        {
+            Name = stateName;
+            stateEvents = possibleEvents;
+            target = targetStateNode;
+
+        }
+
+        public void setTargetNode(StateNode targetStateNode)
+        {
+            target = targetStateNode;
         }
     }
 
-    public class StateEvent
+    public class TransitionEvent
     {
         public string eventName { get; set; }
         public string eventType { get; set; }
         public string targetState { get; set; }
-        public StateEvent(string name, string type, string targetStateName)
+        public TransitionEvent(string name, string type, string targetStateName)
         {
-            this.eventName= name;
-            this.eventType = type;
-            this.targetState = targetStateName;
+            eventName= name;
+            eventType = type;
+            targetState = targetStateName;
         }
     }
 }
